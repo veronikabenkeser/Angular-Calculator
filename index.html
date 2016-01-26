@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="calculatorApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body ng-controller="CalculatorController">
+  <div class="outer-cont">
+    <div class="all-content">
+      <div class='calc-container'>
+        <p class='calc-name'>FreeCodeCamp</p>
+        <p class="description">ELECTRONIC CALCULATOR</p>
+        <div class="input-container">
+          <input type="text" my-auto-focus ng-focus="true" ng-model="result" input ng-keyup="$event.keyCode == 13 && calculate()" ng-change="removeError()">
+          <div class='error-display'>{{errorDisplay}}</div>
+        </div>
+        <br>
+        <div class="buttons-container">
+          <button ng-repeat="key in keys" ng-click="removeError(); doOperation(key)">{{key}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
